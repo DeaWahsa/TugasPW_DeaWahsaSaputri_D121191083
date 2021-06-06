@@ -25,6 +25,7 @@ if (isset($_POST['cari'])) {
 </head>
 
 <body>
+  <a href="logout.php">Logout</a>
   <h3>Daftar Mahasiswa</h3>
 
   <a href="tambah.php">Tambah Data Mahasiswa</a>
@@ -36,35 +37,38 @@ if (isset($_POST['cari'])) {
   </form>
   <br>
 
-  <table border="1" cellpadding="10" cellspacing="0">
-    <tr>
-      <th>#</th>
-      <th>Gambar</th>
-      <th>Nama</th>
-      <th>Aksi</th>
-    </tr>
-
-    <?php if (empty($mahasiswa)) : ?>
+  <div class="container">
+    <table border="1" cellpadding="10" cellspacing="0">
       <tr>
-        <td colspan="4">
-          <p style="color: red; font-style: italic;">data mahasiswa tidak ditemukan!</p>
-        </td>
+        <th>#</th>
+        <th>Gambar</th>
+        <th>Nama</th>
+        <th>Aksi</th>
       </tr>
-    <?php endif; ?>
 
-    <?php $i = 1;
-    foreach ($mahasiswa as $m) : ?>
-      <tr>
-        <td><?= $i++; ?></td>
-        <td><img src="img/<?= $m['gambar']; ?>" width="60"></td>
-        <td><?= $m['nama']; ?></td>
-        <td>
-          <a href="detail.php?id=<?= $m['id']; ?>">lihat detail</a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </table>
+      <?php if (empty($mahasiswa)) : ?>
+        <tr>
+          <td colspan="4">
+            <p style="color: red; font-style: italic;">data mahasiswa tidak ditemukan!</p>
+          </td>
+        </tr>
+      <?php endif; ?>
 
+      <?php $i = 1;
+      foreach ($mahasiswa as $m) : ?>
+        <tr>
+          <td><?= $i++; ?></td>
+          <td><img src="img/<?= $m['gambar']; ?>" width="60"></td>
+          <td><?= $m['nama']; ?></td>
+          <td>
+            <a href="detail.php?id=<?= $m['id']; ?>">lihat detail</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </table>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
