@@ -136,8 +136,7 @@ function ubah($data)
     return false;
   }
 
-  if ($gambar == 'nophoto.jpg') {
-    $gambar = $gambar_lama;
+  if ($gambar == 'metawin.jpg') {
   }
 
   $query = "UPDATE mahasiswa SET
